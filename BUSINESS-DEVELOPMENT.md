@@ -23,7 +23,7 @@ No listas genéricas. Investigamos quién específicamente debería estar hablan
 - Mapeo de industria por nicho, tamaño de empresa, región geográfica
 - Identificación de decision makers (CEO, CTO, VP de operaciones, Gerente de compras)
 - Filtrado por señales de compra: contrataciones recientes, expansión, financiamiento, dolor evidente en redes
-- Fuentes: LinkedIn, bases de datos públicas, noticias de industria, directorios empresariales
+- Acceso a bases de datos de más de 450M de contactos B2B verificados
 
 **Resultado:** Lista curada de prospectos con nombre, cargo, empresa, señal de compra identificada.
 
@@ -33,38 +33,41 @@ No listas genéricas. Investigamos quién específicamente debería estar hablan
 
 Una lista sin datos de contacto no sirve.
 
-- Búsqueda de correo corporativo verificado
-- Perfil de LinkedIn completo
-- Contexto de la empresa: tamaño, industria, tecnología que usan, clientes que tienen
+- Búsqueda y verificación de correo corporativo (tasa de bounce <5%)
+- Perfil de LinkedIn completo, tecnología que usan, tamaño del equipo
 - Notas de personalización: algo específico sobre esa persona o empresa que justifica el outreach
+- Waterfall enrichment: si un proveedor no tiene el dato, pasa automáticamente al siguiente
 
 **Resultado:** Contacto listo para escribirle — sin buscar nada manualmente.
 
 ---
 
-### 3. Outreach personalizado
+### 3. Outreach personalizado multicanal
 
 No templates. Mensajes reales que suenan como si los escribiera alguien que investigó antes de contactar.
 
-- Email en frío — línea de asunto que abre, cuerpo que genera respuesta
-- LinkedIn DM — más corto, más directo, mejor para founders y C-level
-- WhatsApp / Telegram cuando el canal lo permite
-- Personalización real: referencia al negocio, al rol, al timing ("vi que acabas de expandir a...")
+- **Email en frío** — línea de asunto que abre, cuerpo que genera respuesta, fuera del spam
+- **LinkedIn DM** — más corto, más directo, mejor para founders y C-level
+- **WhatsApp** — cuando el canal lo permite, especialmente en LATAM donde la tasa de apertura supera el 90%
+- **Llamadas** — como paso en la secuencia cuando el prospecto ya tiene contexto
+
+Personalización real: la IA extrae datos del LinkedIn, el sitio web, y noticias recientes del prospecto — y los integra al mensaje automáticamente.
 
 **Resultado:** Primer mensaje que no parece spam — porque no lo es.
 
 ---
 
-### 4. Secuencias de seguimiento
+### 4. Secuencias de seguimiento automatizadas
 
 El 80% de los cierres ocurren entre el 5to y 8vo contacto. La mayoría se rinde en el 2do.
 
-- Secuencia de 4-6 pasos por prospecto (email + LinkedIn + variaciones)
+- Secuencia de 4-8 pasos por prospecto (email + LinkedIn + WhatsApp + llamada)
 - Espaciado inteligente: no molesta, pero no desaparece
 - Cambio de ángulo en cada toque — no el mismo mensaje tres veces
+- Warm-up automático del dominio de correo para proteger deliverability
 - Condición de salida: respuesta positiva, negativa, o sin respuesta tras N intentos
 
-**Resultado:** Sistema de seguimiento que funciona solo — sin recordatorios manuales.
+**Resultado:** Sistema que trabaja 24/7 sin supervisión manual.
 
 ---
 
@@ -74,7 +77,7 @@ Cuando el prospecto responde, hay que estar listo.
 
 - One-pager del servicio adaptado al prospecto específico
 - Deck de pitch personalizado por industria o caso de uso
-- Propuesta económica con opciones claras (no un PDF genérico)
+- Propuesta económica con opciones claras
 - Briefing pre-reunión: quién es, qué le importa, qué objeciones probables tiene
 
 **Resultado:** Entras a la reunión con ventaja — no improvisando.
@@ -86,110 +89,119 @@ Cuando el prospecto responde, hay que estar listo.
 A veces el problema no es el outreach — es que la empresa no está posicionada para ganar contratos grandes.
 
 - Análisis de cómo se percibe la empresa desde afuera
-- Identificación de gaps en comunicación, propuesta de valor, o caso de uso
-- Recomendaciones concretas: qué cambiar en el sitio, en el pitch, en el messaging
-- Acompañamiento en el proceso de reposicionamiento
+- Identificación de gaps en comunicación y propuesta de valor
+- Acompañamiento en reposicionamiento de mensaje y presencia digital
 
 **Resultado:** Empresa lista para competir por contratos más grandes.
 
 ---
 
+## El stack de herramientas que usamos
+
+Estas son las herramientas reales que componen el pipeline:
+
+| Herramienta | Función | Modelo |
+|---|---|---|
+| **Apollo.io** | Base de datos B2B, 275M+ contactos, filtros avanzados por industria/cargo/señal de intención | Freemium / desde $49/mes |
+| **Clay** | Enriquecimiento avanzado, waterfall de datos, integración de 100+ fuentes, workflows de IA | Desde $149/mes |
+| **Hunter.io** | Búsqueda de correos por dominio, verificación, sequences básicas | Freemium / desde $34/mes |
+| **Lemlist** | Secuencias multicanal (email + LinkedIn + WhatsApp + llamada), personalización por IA, deliverability | Desde $39/mes |
+| **Instantly.ai** | Email outreach a escala, warm-up de dominios, gestión de múltiples bandejas | Desde $37/mes |
+| **LinkedIn Sales Navigator** | Búsqueda avanzada de decision makers, InMail, alertas de cambio de trabajo | Desde $99/mes |
+
+**El diferencial FSS:** no vendemos el acceso a las herramientas — las operamos. El cliente no necesita aprender ninguna. Nosotros gestionamos todo el stack.
+
+---
+
+## Cómo funciona el agente de outreach
+
+El proceso que hacemos manualmente hoy puede automatizarse significativamente:
+
+1. **Agente researcher** (Ryne) — monitorea señales de compra en LinkedIn, noticias, y webs corporativas
+2. **Agente de enriquecimiento** — cruza prospectos contra Apollo/Hunter para completar datos de contacto
+3. **Agente de copywriting** — redacta mensajes personalizados con contexto real del prospecto
+4. **Integración con Lemlist/Instantly** — lanza la secuencia automáticamente
+5. **Agente de reporting** (Chrono) — consolida métricas y genera reporte semanal
+
+El humano solo revisa antes de lanzar. Todo lo demás corre solo.
+
+---
+
 ## Modelos de trabajo
 
-### Campaña por resultado
-Pagás cuando hay reunión calificada generada o contrato cerrado.
-- Fee base bajo + success fee sobre cada reunión calificada o contrato firmado
-- Ideal para: empresas que quieren probar el servicio antes de comprometerse
+### Por resultado
+Pagás cuando hay reunión calificada generada.
+- Fee base bajo + $X por reunión calificada entregada
+- Ideal para empresas que quieren probar antes de comprometerse
 
 ### Retainer mensual
-Campaña activa con número definido de prospectos contactados por mes.
-- Precio fijo mensual + métricas de actividad reportadas semanalmente
-- Ideal para: empresas que quieren pipeline constante y predecible
+Campaña activa con volumen definido de prospectos por mes.
+- Precio fijo mensual + reporte semanal de métricas
+- Ideal para pipeline constante y predecible
 
 ### Híbrido
 Retainer bajo + success fee sobre contratos cerrados.
-- El modelo más alineado — nosotros ganamos cuando tú ganás
-- Ideal para: relaciones de largo plazo con empresas de alto ticket
+- El más alineado — ganamos cuando tú ganás
+- Ideal para relaciones de largo plazo y contratos de alto ticket
 
 ---
 
 ## Para quién es esto
 
-**Startups y scale-ups** que tienen producto sólido pero no han estructurado ventas todavía.
-
-**Empresas de servicios** (agencias, consultoras, SaaS) que dependen de referidos y quieren salir de ese ciclo.
-
-**Founders técnicos** que construyen bien pero no venden bien — y no tienen tiempo de aprender.
-
-**Empresas LATAM** que quieren entrar a USA o Europa pero no saben cómo hacer outreach en ese mercado.
-
-**Empresas establecidas** que quieren un canal de crecimiento adicional sin contratar un equipo de ventas.
+- **Startups y scale-ups** con producto sólido pero sin proceso de ventas estructurado
+- **Agencias y consultoras** que dependen de referidos y quieren salir de ese ciclo
+- **Founders técnicos** que construyen bien pero no venden — y no tienen tiempo de aprender
+- **Empresas LATAM** que quieren entrar a USA o Europa
+- **Empresas establecidas** que quieren un canal de crecimiento sin contratar un equipo de ventas
 
 ---
 
-## Por qué funciona diferente con agentes de IA
+## Por qué la IA cambia el juego en outreach
 
-El outreach tradicional es lento y caro porque cada mensaje requiere investigación manual. Nosotros automatizamos la parte escalable sin perder la personalización que genera respuesta.
+El outreach tradicional es lento y caro porque cada mensaje requiere investigación manual. Con agentes:
 
-- **Investigación**: el agente encuentra y enriquece 100 prospectos en el tiempo que un humano encuentra 10
-- **Personalización**: el agente redacta mensajes con contexto real — no mail merge con nombre
-- **Seguimiento**: secuencias ejecutadas automáticamente según el comportamiento del prospecto
-- **Reporte**: métricas en tiempo real — opens, respuestas, reuniones generadas, tasa de conversión por canal
+- **100 prospectos investigados** en el tiempo que un humano investiga 10
+- **Personalización real** a escala — no mail merge con nombre, sino contexto genuino
+- **Seguimiento automático** sin que nadie olvide hacer el segundo contacto
+- **Señales de compra en tiempo real** — si el prospecto publica algo relevante, el agente lo detecta
 
-El resultado: velocidad de agente, calidad de humano.
+Velocidad de máquina. Calidad de humano.
 
 ---
 
-## Métricas que reportamos
+## Métricas de campaña estándar
 
-Cada campaña activa incluye reporte semanal con:
+| Métrica | Benchmark industria | Nuestro target |
+|---|---|---|
+| Tasa de apertura email | 20-25% | 40%+ |
+| Tasa de respuesta | 2-5% | 8-15% |
+| Reply positivo | 0.5-1% | 3-5% |
+| Reuniones generadas / 100 prospectos | 1-3 | 5-10 |
 
-- Prospectos identificados ese período
-- Mensajes enviados (por canal)
-- Tasa de apertura (email)
-- Respuestas recibidas (positivas / negativas / neutras)
-- Reuniones generadas
-- Contratos en proceso
-- CAC estimado por prospecto calificado
-
-No hay caja negra. Sabés exactamente qué pasa con cada peso que invertís.
+Los números dependen del nicho, la calidad de la lista, y el messaging. Pero estos son los targets que perseguimos.
 
 ---
 
 ## Casos de uso por industria
 
-### Tecnología & Software
-Prospectar CTOs, VPs de Engineering, o Heads of Product en empresas que usan tecnología complementaria.
-Outreach orientado a pain técnico: "veo que usan X, el problema típico es Y, nosotros lo resolvemos con Z."
-
-### Educación & E-learning
-Prospectar coordinadores académicos, directores de instituciones, o departamentos de RRHH para capacitación.
-Outreach con caso de uso de ahorro de tiempo o costo.
-
-### Logística & Supply Chain
-Prospectar Gerentes de Operaciones o de Compras en empresas con cadena de suministro compleja.
-Outreach orientado a eficiencia y reducción de errores.
-
-### Retail & E-commerce
-Prospectar dueños de marca, brand managers, o directores de marketing.
-Outreach orientado a ventas, conversión, y presencia digital.
-
-### Servicios Profesionales
-Prospectar socios o directores en consultoras, firmas de abogados, contadores.
-Outreach orientado a automatización de procesos y escalabilidad.
+**Tecnología & SaaS** — prospectar CTOs/VPs con pain técnico identificado  
+**Educación** — coordinadores académicos, directores de instituciones  
+**Logística** — Gerentes de Operaciones con cadena de suministro compleja  
+**Retail & E-commerce** — brand managers, directores de marketing  
+**Servicios profesionales** — socios en consultoras, firmas, agencias  
 
 ---
 
 ## El primer paso
 
 Una llamada de 30 minutos donde entendemos:
-- Qué vendes y a quién se lo has vendido hasta ahora
+- Qué vendés y a quién se lo has vendido hasta ahora
 - Qué contrato grande o cliente ideal querés cerrar
 - Qué has intentado y por qué no funcionó
 
-Con eso armamos la estrategia de campaña y arrancamos en 48 horas.
+Con eso armamos la estrategia y arrancamos en 48 horas.
 
 ---
 
 *Flow State Studio — Business Development*  
-*Versión 1.0 — Marzo 2026*
+*Versión 2.0 — Marzo 2026 — Actualizado con stack de herramientas validado*
